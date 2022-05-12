@@ -63,21 +63,104 @@
     <section class="container py-5">
         <div class="row">
             <div class="col-lg-8 col-sm mb-5 mx-auto">
-<h1 class="fs-4 text-center lead text-primary">CRUD PHP POO MYSQL AJAX</h1>
+
+
+            <h1 class="fs-4 text-center lead text-primary">CRUD PHP POO MYSQL AJAX</h1>
 
             </div>
           
         </div>
          <div class="dropdown-divider border-warning"></div>
          <div class="row">
+
+         <div class="col-md-6">
+    
+         <h1 class="fw-bold mb-8">liste des factures</h1>
+</div>
 <div class="col-md-6">
-    <h1 class="fw-bold mb-8">liste des factures</h1>
+<div class="d-flex justify-content-end">
+    <button class="btn btn-primary btn-sm me-3 "data-bs-toggle="modal" data-bs-target="#createModal">
+        <i class="fas fa-folder-plus"></i>Nouveau
+    </button>
+    <a href="#" class="btn btn-success btn-sm " id="export"><i class="fas fa-table">Exporter</i></a>
 </div>
 
+</div>
          </div>
            <div class="dropdown-divider border-warning"></div>
-          <div class="row"></div>
+          <div class="row">
+              <div class="table-responsive" id="orderTable">
+                  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Client</th>
+      <th scope="col">Caissier</th>
+      <th scope="col">Montant</th>
+       <th scope="col">Perçu</th>
+        <th scope="col">Retourné</th>
+         <th scope="col">Etat</th>
+            <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <?php for($i=0;$i<100;$i++): ?>
+    <tr>
+      <th scope="row"><?=$i?></th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      
+      <td>Otto</td>
+      <td>@mdo</td>
+        <td>Mark</td>
+      
+      <td>
+          <a href="#" class="text-info me-2 infoBtn" title="voir detail"><i class="fas fa-info-circle"></i></a>
+     
+             <a href="#" class="text-warning me-2 modifBtn" title="modifier"><i class="fas fa-edit"></i></a>
+                    <a href="#" class="text-danger me-2 deleteBtn" title="suprimer"><i class="fas fa-trash"></i></a>   </td>
+
+    </tr>
+  <?php endfor; ?>
+  </tbody>
+</table>
+              </div>
+          </div>
     </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nouvelle facture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post" id="formOrder">
+            <div class="col md-10">
+          <label for="customer">
+            <input type="text" id="customer" placeholder="customer">
+            </label>
+            </div>
+            <label for="cashier">
+            <input type="text" id="cashier">
+            </label>
+            <input type="number" id="amount">
+         <input type="number" id='recieved'>
+         <input type="number" id='returned'>
+         <input type="boolean" id='state'>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">ajouter <i class="fas fa-plus"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -87,6 +170,7 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="process.js"></script>
 </body>
 
 </html>
